@@ -1,0 +1,86 @@
+
+img {
+  max-width: 100%;
+  width: auto;
+}
+
+form {
+  margin-top: 2em;
+}
+
+.thumbnail {
+  background-color: #ecf0f1;
+}
+
+.jumbotron {
+  background-color: #f1c40f;
+}
+
+.map-container {
+  width: 100%;
+  height: 350px;
+}
+
+.card {
+  margin: 1em 0;
+}
+
+.card-image {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.card .card-image img {
+  height: auto;
+}
+
+.card-footer {
+  font-size: 15px;
+}
+
+.card-image-headline {
+  fonte-size: 15px;
+}
+
+.intro-text {
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+.intro-text .intro-lead-in {
+  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 22px;
+  margin-bottom: 25px;
+}
+.intro-text .intro-heading {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 50px;
+  margin-bottom: 25px;
+}
+@media (min-width: 768px) {
+  .intro-text {
+    padding-top: 300px;
+    padding-bottom: 200px;
+  }
+  .intro-text .intro-lead-in {
+    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: italic;
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 25px;
+  }
+  .intro-text .intro-heading {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 75px;
+    line-height: 75px;
+    margin-bottom: 50px;
+  }
+}
+
+
