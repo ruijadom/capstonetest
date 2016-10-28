@@ -1,25 +1,116 @@
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>nomadpx</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  {{> sAlert}}
 
-  {{> hello}}
-  {{> info}}
+<!-- Navigation -->
+
+<div class="container">
+  <div class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">n<i class="fa fa-globe" aria-hidden="true"></i>madpx</a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+    </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          {{> loginButtons}}
+        </ul>
+    </div>
+  </div>
+
+
+{{#if currentUser}}
+
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="jumbotron">
+          <h2>Travel photo sharing for new digital nomads!</h2>  
+        </div>
+
+<!-- Map container -->
+
+        <div class="map-container">
+            {{> googleMap name="photoMap" options=photoMapOptions}}
+        </div> 
+        <div class="caption">
+          <h3>places i have visited</h3>
+
+<!-- Inputs Form take a photo -->
+
+          <p>Take a photo to mark another place in your map</p>
+          <div id="notes-input"><input class="btn btn-success" type="button" id="take-photo" value="upload new photo"></div>
+        </div>
+      </div>
+    </div>
+
+<!-- Inputs Form text message -->
+    
+    <div class="col-sm-6 col-md-8">
+
+      <form>
+        <div class="form-group">
+          <label for="Message">What's up?</label>
+          <textarea class="form-control" id="message-input" placeholder="type here" rows="3"></textarea>
+        </div>
+          <button type="submit" class="btn btn-info">Save</button>
+      </form>
+
+<!-- Preciew panel for notes -->
+
+      <div class="text"> 
+      {{#each notes}}
+      {{> note}}
+      {{/each}}
+      </div>
+
+<!-- / Preciew panel for notes -->
+
+    </div>
+  </div>
+{{/if}}
+
+</div>
+
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<!-- Template -->
+
+<template name="note">
+  <div class="card" id={{_id}}>
+
+    {{#if photo}}
+      <div class="card-image">
+        <img src="{{photo}}" alt="Loading image...">
+        <h4 class="card-image-headline">{{userName}}</h4>
+      </div>
+      <div class="card-body"></div>
+    {{else}}
+      <div class="card-body">
+        <h3>{{note}}</h3>
+      </div>
+    {{/if}}
+
+    <footer class="card-footer">
+      <div class="row">
+        <div class="col-xs-6">
+          {{userName}}, {{livestamp timestamp}},
+        </div>
+        <div class="col-xs-1">
+          <a class="delete" href="#">Delete</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
 </template>
 
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
-  </ul>
-</template>
+
