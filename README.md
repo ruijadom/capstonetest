@@ -1,2 +1,2 @@
 # capstonetest
-nomadpx app
+This is a repo for my capstone test.
